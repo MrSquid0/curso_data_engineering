@@ -1,1 +1,3 @@
-# curso_data_engineering
+# Curso Data Engineering
+
+Curso sobre Data Engineering.
