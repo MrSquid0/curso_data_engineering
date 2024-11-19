@@ -5,7 +5,7 @@ WITH src_products AS (
 
 renamed_casted AS (
     SELECT
-        , inventory
+          inventory
         , name
         , price
         , product_id

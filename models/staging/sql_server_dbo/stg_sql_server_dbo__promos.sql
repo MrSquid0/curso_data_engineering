@@ -10,7 +10,7 @@ renamed_casted AS (
         , status
         , _fivetran_deleted
         , _fivetran_synced AS date_load
-    FROM src_budget
+    FROM src_promos
     )
 
 SELECT * FROM renamed_casted
