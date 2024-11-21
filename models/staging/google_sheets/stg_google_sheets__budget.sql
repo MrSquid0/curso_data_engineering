@@ -5,9 +5,9 @@ WITH src_budget AS (
 
 renamed_casted AS (
     SELECT
-          _row
+          CAST(_row AS INTEGER) AS _row
         , product_id
-        , quantity
+        , CAST(quantity AS INTEGER) AS quantity
         , month
         , _fivetran_synced AS date_load
     FROM src_budget
