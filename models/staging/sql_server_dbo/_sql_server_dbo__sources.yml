@@ -21,12 +21,35 @@ sources:
         loaded_at_field: _fivetran_synced
         columns:
           - name: address
+            description: >
+              "Name of the address"
+            tests:
+              - not_null
           - name: address_id
+            description: >
+              "Unique identificator of the address"
+            tests:
+              - not_null
+              - unique
           - name: country
+            description: >
+              "Country of the address"
+            tests:
+              - not_null
           - name: state
+            description: >
+              "State of the address"
+            tests:
+              - not_null
           - name: zipcode
+            description: >
+              "Zip code of the address"
+            tests:
+              - not_null
           - name: _fivetran_deleted
           - name: _fivetran_synced
+            tests:
+              - not_null
 
       - name: events
         loaded_at_field: _fivetran_synced
@@ -46,20 +69,79 @@ sources:
         loaded_at_field: _fivetran_synced
         columns:
           - name: address_id
+            description: >
+              "Unique identificator of the address of the order"
+            tests:
+              - not_null
           - name: created_at
+            description: >
+              "Timestamp where the order is created at the system"
+            tests:
+              - not_null
           - name: delivered_at
+            description: >
+              "Timestamp where the order was delivered."
+            tests:
+              - not_null
           - name: estimated_delivery_at
+            description: >
+              "Timestamp where the the order is supposed to be delivered"
+            tests:
+              - not_null
           - name: order_cost
+            description: >
+              "Cost of the all the products of the order (shipping cost and promos NOT included!)"
+            tests:
+              - not_null
+              - positive_values
           - name: order_id
+            description: >
+              "Unique identificator of the order"
+            tests:
+              - not_null
+              - unique
           - name: order_total
+            description: >
+              "Total cost of the order (shipping cost and promos included)"
+            tests:
+              - not_null
+              - positive_values
           - name: promo_id
+            description: >
+              "Unique identificator of the promo applied to the order"
+            tests:
+              - not_null
           - name: shipping_cost
+            description: >
+              "Cost of the shipping company service"
+            tests:
+              - not_null
           - name: shipping_service
+            description: >
+              "Name of the shipping company service"
+            tests:
+              - not_null
           - name: status
+            description: >
+              "Status of the order"
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['preparing', 'delivered', 'shipped']
           - name: tracking_id
+            description: >
+              "Unique identificator of the tracking of the order"
+            tests:
+              - not_null
           - name: user_id
+            description: >
+              "Unique identificator of the user of the order"
+            tests:
+              - not_null
           - name: _fivetran_deleted
           - name: _fivetran_synced
+            tests:
+              - not_null
 
       - name: order_items
         loaded_at_field: _fivetran_synced
@@ -84,8 +166,24 @@ sources:
         loaded_at_field: _fivetran_synced
         columns:
           - name: discount
+            description: >
+              "Discount in euros (not percentage!) of the promotion"
+            tests:
+              - not_null
+              - positive_values
           - name: promo_id
+            description: >
+              "Unique identificator of the promotion"
+            tests:
+              - not_null
+              - unique
           - name: status
+            description: >
+              "Status of the promotion"
+            tests:
+              - accepted_values:
+                  values: ['active', 'inactive']
+              - not_null
           - name: _fivetran_deleted
           - name: _fivetran_synced
 
@@ -93,13 +191,52 @@ sources:
         loaded_at_field: _fivetran_synced
         columns:
           - name: address_id
+            description: >
+              "Unique identificator of the address of the user"
+            tests:
+              - not_null
           - name: created_at
+            description: >
+              "Timestamp where the user is created at the system"
+            tests:
+              - not_null
           - name: email
+            description: >
+              "Email of the user"
+            tests:
+              - not_null
+              - unique
           - name: first_name
+            description: >
+              "First name of the user"
+            tests:
+              - not_null
           - name: last_name
+            description: >
+              "Last name of the user"
+            tests:
+              - not_null
           - name: phone_number
+            description: >
+              "Phone number of the user"
+            tests:
+              - not_null
+              - unique
           - name: total_orders
+            description: >
+              "Total orders made by the user"
           - name: updated_at
+            description: >
+              "Last update of any field of the user"
+            tests:
+              - not_null
           - name: user_id
+            description: >
+              "Unique identificator of the user"
+            tests:
+              - not_null
+              - unique
           - name: _fivetran_deleted
           - name: _fivetran_synced
+            tests:
+              - not_null
