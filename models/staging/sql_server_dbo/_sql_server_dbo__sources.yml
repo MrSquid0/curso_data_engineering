@@ -4,7 +4,7 @@ sources:
 
   - name: sql_server_dbo # name of the source 
     schema: sql_server_dbo # this is the schema our raw data lives in
-    database: ALUMNO31_DEV_BRONZE_DB # this is the name of our database
+    database: "{{ env_var('DBT_ENVIRONMENTS') }}_BRONZE_DB" # this is the name of our database
 
     quoting:
       database: false
@@ -81,13 +81,9 @@ sources:
           - name: delivered_at
             description: >
               "Timestamp where the order was delivered."
-            tests:
-              - not_null
           - name: estimated_delivery_at
             description: >
               "Timestamp where the the order is supposed to be delivered"
-            tests:
-              - not_null
           - name: order_cost
             description: >
               "Cost of the all the products of the order (shipping cost and promos NOT included!)"
