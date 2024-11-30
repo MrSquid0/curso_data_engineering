@@ -37,3 +37,30 @@ Identificador único del evento.
 Identificador único del producto asociado.
 
 {% enddocs %}
+
+{% docs order_items_id %}
+
+# Order Items ID
+
+Identificador único de la cantidad del producto en el pedido creado 
+a través de una 'surrogate key' con los valores 'order_id' y 'product_id'.
+
+{% enddocs %}
+
+{% docs budget_id %}
+
+# Budget ID
+
+Identificador único del presupuesto creado a través de una 'surrogate key' 
+con los valores 'product_id' y 'month'.
+
+{% enddocs %}
+
+{% docs promo_id_v2 %}
+
+# Promo ID
+
+Identificador único de la promoción creado a través de una 'surrogate key' 
+con los valores 'promo_id'.
+
+{% enddocs %}

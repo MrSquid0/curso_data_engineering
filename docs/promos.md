@@ -26,3 +26,11 @@ Descripción del estado de la promoción, si está activa o no, con las siguient
   | inactive       | La promoción ha sido desactivada.       |
 
 {% enddocs %}
+
+{% docs promo_type %}
+
+## Promo type
+
+Código de la promoción.
+
+{% enddocs %}

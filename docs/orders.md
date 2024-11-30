@@ -2,7 +2,8 @@
 
 # Orders
 
-Tabla de todos los pedidos existentes.
+Tabla de todos los pedidos existentes (todos los precios están 
+expresados en euros).
 
 {% enddocs %}
 
@@ -73,5 +74,22 @@ Estado actual del envío del pedido. Valores aceptados: preparing, delivered, sh
 # Tracking ID
 
 Identificador único del seguimiento del pedido.
+
+{% enddocs %}
+
+
+{% docs delivered_at_v2 %}
+
+## Delivered At
+
+Marca temporal cuando el pedido fue entregado (zona horaria: UTC).
+
+{% enddocs %}
+
+{% docs estimated_delivery_at_v2 %}
+
+## Estimated Delivery At
+
+Fecha estimada para la entrega del pedido (zona horaria: UTC).
 
 {% enddocs %}

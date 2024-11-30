@@ -10,8 +10,11 @@ renamed_casted AS (
         , INITCAP(country) AS country
         , INITCAP(state) AS state
         , CAST(zipcode AS INTEGER) AS zipcode
-        , _fivetran_deleted
-        , _fivetran_synced AS date_load
+        , CASE 
+            WHEN _fivetran_deleted IS NULL THEN FALSE 
+            ELSE TRUE 
+        END AS data_deleted
+        , CONVERT_TIMEZONE('UTC', _fivetran_synced) AS date_load_utc
     FROM src_addresses
     )
 

@@ -5,11 +5,15 @@ WITH src_order_items AS (
 
 renamed_casted AS (
     SELECT
-          order_id
+        {{ dbt_utils.generate_surrogate_key(['order_id', 'product_id']) }} AS order_items_id    
+        ,  order_id
         , product_id
         , quantity
-        , _fivetran_deleted
-        , _fivetran_synced AS date_load
+        , CASE 
+            WHEN _fivetran_deleted IS NULL THEN FALSE 
+            ELSE TRUE
+        END AS data_deleted
+        , CONVERT_TIMEZONE('UTC', _fivetran_synced) AS date_load_utc
     FROM src_order_items
     )
 

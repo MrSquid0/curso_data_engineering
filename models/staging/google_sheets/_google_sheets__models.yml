@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_google_sheets__budget
+    description: '{{ doc("budget_table") }}'
+    columns:
+      - name: budget_id
+        data_type: varchar
+        description: '{{ doc("budget_id") }}'
+
+      - name: product_id
+        data_type: varchar
+        description: '{{ doc("product_id") }}'
+
+      - name: quantity
+        data_type: integer
+        description: '{{ doc("budget_quantity") }}'
+
+      - name: month
+        data_type: date
+        description: '{{ doc("budget_month") }}'
+
+      - name: date_load_utc
+        data_type: timestamp_tz
+        description: '{{ doc("date_load") }}'
