@@ -65,11 +65,11 @@ no hay empresa de envío asignada.
 
 Estado actual del envío del pedido. Valores aceptados: preparing, delivered, shipped.
 
-  | status         | definición                              |
-  |----------------|-----------------------------------------|
-  | preparing      | El pedido se está preparando.           |
-  | shipped        | El pedido ha sido enviado.              |
-  | delivered      | El pedido ha sido entregado.            |
+  | shipping_status | definición                              |
+  |---------------- |-----------------------------------------|
+  | preparing       | El pedido se está preparando.           |
+  | shipped         | El pedido ha sido enviado.              |
+  | delivered       | El pedido ha sido entregado.            |
 
 {% enddocs %}
 

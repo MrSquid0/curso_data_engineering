@@ -20,7 +20,7 @@ Descuento de la promoción en euros (no es un porcentaje).
 
 Descripción del estado de la promoción, si está activa o no, con las siguientes definiciones:
 
-  | status         | definición                              |
+  | promo_status   | definición                              |
   |----------------|-----------------------------------------|
   | active         | La promoción está activa.               |
   | inactive       | La promoción ha sido desactivada.       |
