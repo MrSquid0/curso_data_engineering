@@ -27,10 +27,10 @@ Descripción del estado de la promoción, si está activa o no, con las siguient
 
 {% enddocs %}
 
-{% docs promo_type %}
+{% docs promo_code %}
 
-## Promo type
+## Promo code
 
-Código de la promoción.
+Código único de la promoción.
 
 {% enddocs %}

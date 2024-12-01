@@ -6,7 +6,7 @@ WITH src_promos AS (
 renamed_casted AS (
     SELECT
         {{ dbt_utils.generate_surrogate_key(['promo_id']) }} AS promo_id
-        , LOWER(promo_id) AS promo_type
+        , LOWER(promo_id) AS promo_code
         , CAST(discount AS INTEGER) AS promo_discount
         , LOWER(status) AS promo_status
         , CASE 

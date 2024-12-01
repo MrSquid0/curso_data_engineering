@@ -18,15 +18,15 @@ renamed_casted AS (
               ELSE {{ dbt_utils.generate_surrogate_key(['promo_id']) }}
           END AS promo_id
           , CAST(shipping_cost AS DECIMAL(10,2)) AS shipping_cost
-          , LOWER(shipping_service) AS shipping_service
           , CASE
-              WHEN status = ''
-              THEN 'NOT SENT YET'
-              ELSE LOWER(status)
-          END AS shipping_status
+              WHEN shipping_service = ''
+              THEN null
+              ELSE LOWER(shipping_service)
+          END AS shipping_service
+          , LOWER(status) AS shipping_status
           , CASE
               WHEN tracking_id = ''
-              THEN 'NOT SENT YET'
+              THEN null
               ELSE tracking_id
           END AS tracking_id
           , user_id

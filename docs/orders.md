@@ -12,6 +12,7 @@ expresados en euros).
 ## Delivered At
 
 Marca temporal cuando el pedido fue entregado.
+Si el campo es 'null' significa que aún no se ha enviado el pedido.
 
 {% enddocs %}
 
@@ -20,6 +21,7 @@ Marca temporal cuando el pedido fue entregado.
 ## Estimated Delivery At
 
 Fecha estimada para la entrega del pedido.
+Si el campo es 'null' significa que aún no se ha enviado el pedido.
 
 {% enddocs %}
 
@@ -52,6 +54,8 @@ Coste en euros del servicio de envío.
 # Shipping Service
 
 Nombre del servicio de envío.
+Si el campo es 'null' significa que aún no se ha enviado el pedido, y por tanto,
+no hay empresa de envío asignada.
 
 {% enddocs %}
 
@@ -74,6 +78,7 @@ Estado actual del envío del pedido. Valores aceptados: preparing, delivered, sh
 # Tracking ID
 
 Identificador único del seguimiento del pedido.
+Si el campo es 'null' significa que aún no se ha enviado el pedido.
 
 {% enddocs %}
 
@@ -83,6 +88,7 @@ Identificador único del seguimiento del pedido.
 ## Delivered At
 
 Marca temporal cuando el pedido fue entregado (zona horaria: UTC).
+Si el campo es 'null' significa que aún no se ha enviado el pedido.
 
 {% enddocs %}
 
@@ -91,5 +97,6 @@ Marca temporal cuando el pedido fue entregado (zona horaria: UTC).
 ## Estimated Delivery At
 
 Fecha estimada para la entrega del pedido (zona horaria: UTC).
+Si el campo es 'null' significa que aún no se ha enviado el pedido.
 
 {% enddocs %}

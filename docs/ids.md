@@ -61,6 +61,6 @@ con los valores 'product_id' y 'month'.
 # Promo ID
 
 Identificador único de la promoción creado a través de una 'surrogate key' 
-con los valores 'promo_id'.
+con el valor 'promo_id'.
 
 {% enddocs %}

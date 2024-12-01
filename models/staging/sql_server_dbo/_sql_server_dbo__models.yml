@@ -200,9 +200,9 @@ models:
         data_type: varchar
         description: '{{ doc("promo_id_v2") }}'
 
-      - name: promo_type
+      - name: promo_code
         data_type: varchar
-        description: '{{ doc("promo_type") }}'
+        description: '{{ doc("promo_code") }}'
 
       - name: promo_discount
         data_type: integer
