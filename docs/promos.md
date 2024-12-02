@@ -1,14 +1,10 @@
 {% docs promos_table %}
 
-# Promos
-
 Tabla de promociones.
 
 {% enddocs %}
 
 {% docs promo_discount %}
-
-## Discount
 
 Descuento de la promoción en euros (no es un porcentaje).
 
@@ -16,9 +12,7 @@ Descuento de la promoción en euros (no es un porcentaje).
 
 {% docs promo_status %}
 
-## Status
-
-Descripción del estado de la promoción, si está activa o no, con las siguientes definiciones:
+Descripción del estado de la promoción. Los posibles valores son:
 
   | promo_status   | definición                              |
   |----------------|-----------------------------------------|
@@ -28,8 +22,6 @@ Descripción del estado de la promoción, si está activa o no, con las siguient
 {% enddocs %}
 
 {% docs promo_code %}
-
-## Promo code
 
 Código único de la promoción.
 
