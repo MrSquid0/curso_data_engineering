@@ -39,7 +39,14 @@ Coste en euros del servicio de envío.
 
 {% docs shipping_service %}
 
-Nombre del servicio de envío.
+Nombre de la empresa de envío.
+Si el campo está vacío significa que aún no se ha enviado el pedido.
+
+{% enddocs %}
+
+{% docs shipping_service_v2 %}
+
+Nombre de la empresa de envío.
 Si el campo es 'null' significa que aún no se ha enviado el pedido, y por tanto,
 no hay empresa de envío asignada.
 
@@ -58,6 +65,13 @@ Estado actual del envío del pedido. Los posibles valores son:
 {% enddocs %}
 
 {% docs tracking_id %}
+
+Identificador único del seguimiento del pedido.
+Si el campo está vacío significa que aún no se ha enviado el pedido.
+
+{% enddocs %}
+
+{% docs tracking_id_v2 %}
 
 Identificador único del seguimiento del pedido.
 Si el campo es 'null' significa que aún no se ha enviado el pedido.
@@ -81,5 +95,6 @@ Si el campo es 'null' significa que aún no se ha enviado el pedido.
 {% docs days_to_deliver %}
 
 Días que quedan para que sea entregado el pedido.
+Si el campo es 'null' significa que aún no se ha enviado el pedido.
 
 {% enddocs %}
