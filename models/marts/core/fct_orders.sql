@@ -5,7 +5,7 @@ WITH stg_orders AS (
 
 renamed_casted AS (
     SELECT
-        order_id 
+        order_id
         , user_id 
         , promo_id
         , address_id

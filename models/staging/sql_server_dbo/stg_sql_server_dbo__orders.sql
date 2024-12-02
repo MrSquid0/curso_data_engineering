@@ -25,7 +25,7 @@ renamed_casted AS (
           END AS tracking_id
           , CASE
               WHEN promo_id = ''
-              THEN ''
+              THEN null
               ELSE {{ dbt_utils.generate_surrogate_key(['promo_id']) }}
           END AS promo_id
           , user_id

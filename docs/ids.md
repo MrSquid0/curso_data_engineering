@@ -1,6 +1,8 @@
 {% docs order_id %}
 
 Identificador único del pedido asociado.
+Si el valor es 'null' significa que no hay ningún pedido asociado, 
+es decir, que no se ha efectuado ninguna compra.
 
 {% enddocs %}
 
@@ -46,5 +48,6 @@ con los valores 'product_id' y 'month'.
 
 Identificador único de la promoción creado a través de una 'surrogate key' 
 con el valor 'promo_id'.
+Si el valor es 'null' significa que no hay ninguna promoción aplicada.
 
 {% enddocs %}
