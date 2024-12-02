@@ -156,7 +156,7 @@ sources:
         description: '{{ doc("products_table") }}'
         columns:
           - name: inventory
-            description: '{{ doc("product_inventory") }}'
+            description: '{{ doc("product_stock") }}'
           - name: name
             description: '{{ doc("product_name") }}'
           - name: price

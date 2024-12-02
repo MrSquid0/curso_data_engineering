@@ -7,7 +7,7 @@ renamed_casted AS (
     SELECT
           CONVERT_TIMEZONE('UTC', created_at) AS created_at_utc
         , event_id
-        , LOWER(event_type) AS event_type
+        , LOWER(event_type) AS event_type -- Pone el campo en minúscula
         , CASE
               WHEN order_id = ''
               THEN null

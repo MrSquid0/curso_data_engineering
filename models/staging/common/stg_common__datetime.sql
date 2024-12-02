@@ -4,18 +4,19 @@ WITH dim_datetime AS (
             datepart="day",
             start_date="'2021-01-01'",
             end_date="'2024-12-31'"
-        ) }}
+        ) }} -- Genero todas las fechas desde 2021 hasta 2024 gracias
+             -- a la función date_spine de dbt_utils
     )
 ),
 
 datetime_info AS (
     SELECT 
-        DATE_DAY AS datetime_id
-        , DAY(DATE_DAY) AS day_number
-        , MONTH(DATE_DAY) AS month_number
-        , YEAR(DATE_DAY) AS year
-        , DAYNAME(DATE_DAY) AS day_name
-        , MONTHNAME(DATE_DAY) AS month_name
+        DATE_DAY AS datetime_id -- Uso la marca de tiempo como el ID
+        , DAY(DATE_DAY) AS day_number --Obtiene el día numérico del mes
+        , MONTH(DATE_DAY) AS month_number -- Obtiene el mes numérico del año
+        , YEAR(DATE_DAY) AS year -- Obtiene el año numérico de la fecha
+        , DAYNAME(DATE_DAY) AS day_name -- Obtiene el nombre del día del mes
+        , MONTHNAME(DATE_DAY) AS month_name -- Obtiene el nombre del mes del mes
         , CASE
             WHEN dayofweek(DATE_DAY) = 0 THEN 7
             ELSE dayofweek(DATE_DAY)
@@ -24,7 +25,7 @@ datetime_info AS (
             WHEN day_of_week BETWEEN 1 AND 5 THEN 'Weekday'
             ELSE 'Weekend'
         END AS day_type    
-        , QUARTER(DATE_DAY) AS quarter
+        , QUARTER(DATE_DAY) AS quarter -- Obtiene el trimestre numérico del año
         , CASE
             WHEN MONTH(DATE_DAY) BETWEEN 1 AND 6 THEN 1
             ELSE 2

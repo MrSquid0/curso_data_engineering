@@ -7,7 +7,7 @@ renamed_casted AS (
     SELECT
           CONVERT_TIMEZONE('UTC', created_at) AS created_at_utc
           , order_id
-          , CAST(order_cost AS DECIMAL(10,2)) AS order_cost
+          , CAST(order_cost AS DECIMAL(10,2)) AS order_cost -- Castea el campo a decimal con 10 unidades y 2 decimales
           , CAST(order_total AS DECIMAL(10,2)) AS order_total
           , CAST(shipping_cost AS DECIMAL(10,2)) AS shipping_cost
           , CASE

@@ -168,9 +168,9 @@ models:
   - name: stg_sql_server_dbo__products
     description: '{{ doc("products_table") }}'
     columns:
-      - name: inventory
+      - name: stock
         data_type: integer
-        description: '{{ doc("product_inventory") }}'
+        description: '{{ doc("product_stock") }}'
 
       - name: product_name
         data_type: varchar
