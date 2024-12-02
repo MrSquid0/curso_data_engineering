@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_common__datetime
+    description: '{{ doc("datetime_table") }}'
+    columns:
+      - name: datetime_id
+        data_type: timestamp_tz
+        description: '{{ doc("datetime_id") }}'
+
+      - name: day_number
+        data_type: integer
+        description: '{{ doc("day_number") }}'
+
+      - name: month_number
+        data_type: integer
+        description: '{{ doc("month_number") }}'
+
+      - name: year
+        data_type: integer
+        description: '{{ doc("year") }}'
+
+      - name: day_name
+        data_type: varchar
+        description: '{{ doc("day_name") }}'
+
+      - name: month_name
+        data_type: varchar
+        description: '{{ doc("month_name") }}'
+
+      - name: day_of_week
+        data_type: integer
+        description: '{{ doc("day_of_week") }}'
+
+      - name: day_type
+        data_type: varchar
+        description: '{{ doc("day_type") }}'
+
+      - name: quarter
+        data_type: integer
+        description: '{{ doc("quarter") }}'
+
+      - name: semester
+        data_type: integer
+        description: '{{ doc("semester") }}'

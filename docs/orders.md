@@ -100,3 +100,11 @@ Fecha estimada para la entrega del pedido (zona horaria: UTC).
 Si el campo es 'null' significa que aún no se ha enviado el pedido.
 
 {% enddocs %}
+
+{% docs days_to_deliver %}
+
+## Days to deliver
+
+Días que quedan para que sea entregado el pedido.
+
+{% enddocs %}
