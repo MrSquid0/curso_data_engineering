@@ -6,7 +6,14 @@ Tabla sobre todos los eventos existentes.
 
 {% docs event_type %}
 
-Tipo de evento registrado.
+Tipo de evento registrado. Los posibles valores son:
+
+  | event_type      | definición                                           |
+  |---------------- |---------------------------------------|
+  | checkout        | El pedido se ha pagado.               |
+  | package_shipped | El pedido ha sido enviado.            |
+  | add_to_cart     | El producto se ha añadido al carrito. |
+  | page_view       | El producto ha sido visualizado.      |
 
 {% enddocs %}
 

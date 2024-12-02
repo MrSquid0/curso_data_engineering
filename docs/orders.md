@@ -49,11 +49,11 @@ no hay empresa de envío asignada.
 
 Estado actual del envío del pedido. Los posibles valores son:
 
-  | shipping_status | definición                              |
-  |---------------- |-----------------------------------------|
-  | preparing       | El pedido se está preparando.           |
-  | shipped         | El pedido ha sido enviado.              |
-  | delivered       | El pedido ha sido entregado.            |
+  | shipping_status | definición                                           |
+  |---------------- |------------------------------------------------------|
+  | preparing       | El pedido se está preparando (no se ha enviado aún). |
+  | shipped         | El pedido ha sido enviado.                           |
+  | delivered       | El pedido ha sido entregado.                         |
 
 {% enddocs %}
 

@@ -8,9 +8,17 @@ renamed_casted AS (
           CONVERT_TIMEZONE('UTC', created_at) AS created_at_utc
         , event_id
         , LOWER(event_type) AS event_type
-        , order_id
+        , CASE
+              WHEN order_id = ''
+              THEN null
+              ELSE order_id
+        END AS tracking_id
         , page_url
-        , product_id
+        , CASE
+              WHEN product_id = ''
+              THEN null
+              ELSE product_id
+        END AS product_id
         , session_id
         , user_id
         , CASE 
