@@ -43,6 +43,7 @@ models:
     # Applies to all files under models/example/
     staging:
       +materialized: table
+      +database: "{{ env_var('DBT_ENVIRONMENTS') }}_SILVER_DB"
       common:
         +schema: staging_common
       sql_server_dbo:
