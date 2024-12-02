@@ -49,7 +49,7 @@ models:
 
       - name: order_id
         data_type: varchar
-        description: '{{ doc("order_id") }}'
+        description: '{{ doc("order_id_v2") }}'
 
       - name: page_url
         data_type: varchar
@@ -57,7 +57,7 @@ models:
 
       - name: product_id
         data_type: varchar
-        description: '{{ doc("product_id") }}'
+        description: '{{ doc("product_id_v2") }}'
 
       - name: session_id
         data_type: varchar
@@ -84,11 +84,11 @@ models:
 
       - name: order_id
         data_type: varchar
-        description: '{{ doc("order_id") }}'
+        description: '{{ doc("order_id_v2") }}'
 
       - name: product_id
         data_type: varchar
-        description: '{{ doc("product_id") }}'
+        description: '{{ doc("product_id_v2") }}'
 
       - name: quantity
         data_type: integer
@@ -127,7 +127,7 @@ models:
 
       - name: order_id
         data_type: varchar
-        description: '{{ doc("order_id") }}'
+        description: '{{ doc("order_id_v2") }}'
 
       - name: address_id
         data_type: varchar
@@ -143,7 +143,7 @@ models:
 
       - name: shipping_service
         data_type: varchar
-        description: '{{ doc("shipping_service") }}'
+        description: '{{ doc("shipping_service_v2") }}'
 
       - name: shipping_status
         data_type: varchar
@@ -151,7 +151,7 @@ models:
 
       - name: tracking_id
         data_type: varchar
-        description: '{{ doc("tracking_id") }}'
+        description: '{{ doc("tracking_id_v2") }}'
 
       - name: user_id
         data_type: varchar
@@ -182,7 +182,7 @@ models:
 
       - name: product_id
         data_type: varchar
-        description: '{{ doc("product_id") }}'
+        description: '{{ doc("product_id_v2") }}'
 
       - name: data_deleted
         data_type: boolean

@@ -1,6 +1,14 @@
 {% docs order_id %}
 
 Identificador único del pedido asociado.
+Si el valor está vacío significa que no hay ningún pedido asociado, 
+es decir, que no se ha efectuado ninguna compra.
+
+{% enddocs %}
+
+{% docs order_id_v2 %}
+
+Identificador único del pedido asociado.
 Si el valor es 'null' significa que no hay ningún pedido asociado, 
 es decir, que no se ha efectuado ninguna compra.
 
@@ -9,6 +17,7 @@ es decir, que no se ha efectuado ninguna compra.
 {% docs promo_id %}
 
 Identificador único de la promoción.
+Si el campo está vacío significa que no hay ninguna promoción aplicada.
 
 {% enddocs %}
 
@@ -27,6 +36,14 @@ Identificador único del evento.
 {% docs product_id %}
 
 Identificador único del producto asociado.
+Si el valor está vacío significa que no hay ningún producto asociado.
+
+{% enddocs %}
+
+{% docs product_id_v2 %}
+
+Identificador único del producto asociado.
+Si el valor es 'null' significa que no hay ningún producto asociado.
 
 {% enddocs %}
 
