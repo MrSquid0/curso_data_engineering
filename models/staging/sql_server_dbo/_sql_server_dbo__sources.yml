@@ -19,119 +19,116 @@ sources:
 
       - name: addresses
         loaded_at_field: _fivetran_synced
+        description: '{{ doc("addresses_table") }}'
         columns:
           - name: address
-            description: >
-              "Name of the address"
+            description: '{{ doc("address") }}'
             tests:
               - not_null
           - name: address_id
-            description: >
-              "Unique identificator of the address"
+            description: '{{ doc("address_id") }}'
             tests:
               - not_null
               - unique
           - name: country
-            description: >
-              "Country of the address"
+            description: '{{ doc("country") }}'
             tests:
               - not_null
           - name: state
-            description: >
-              "State of the address"
+            description: '{{ doc("state") }}'
             tests:
               - not_null
           - name: zipcode
-            description: >
-              "Zip code of the address"
+            description: '{{ doc("zipcode") }}'
             tests:
               - not_null
           - name: _fivetran_deleted
+            description: '{{ doc("fivetran_deleted") }}'
           - name: _fivetran_synced
+            description: '{{ doc("fivetran_synced") }}'
             tests:
               - not_null
 
       - name: events
         loaded_at_field: _fivetran_synced
+        description: '{{ doc("events_table") }}'
         columns:
           - name: created_at
+            description: '{{ doc("created_at") }}'
           - name: event_id
+            description: '{{ doc("event_id") }}'
           - name: event_type
+            description: '{{ doc("event_type") }}'
           - name: order_id
+            description: '{{ doc("order_id") }}'
           - name: page_url
+            description: '{{ doc("page_url") }}'
           - name: product_id
+            description: '{{ doc("product_id") }}'
           - name: session_id
+            description: '{{ doc("session_id") }}'
           - name: user_id
+            description: '{{ doc("user_id") }}'
           - name: _fivetran_deleted
+            description: '{{ doc("fivetran_deleted") }}'
           - name: _fivetran_synced
+            description: '{{ doc("fivetran_synced") }}'
 
       - name: orders
         loaded_at_field: _fivetran_synced
+        description: '{{ doc("orders_table") }}'
         columns:
           - name: address_id
-            description: >
-              "Unique identificator of the address of the order"
+            description: '{{ doc("address_id") }}'
             tests:
               - not_null
           - name: created_at
-            description: >
-              "Timestamp where the order is created at the system"
+            description: '{{ doc("created_at") }}'
             tests:
               - not_null
           - name: delivered_at
-            description: >
-              "Timestamp where the order was delivered."
+            description: '{{ doc("delivered_at") }}'
           - name: estimated_delivery_at
-            description: >
-              "Timestamp where the the order is supposed to be delivered"
+            description: '{{ doc("estimated_delivery_at") }}'
           - name: order_cost
-            description: >
-              "Cost of the all the products of the order (shipping cost and promos NOT included!)"
+            description: '{{ doc("order_cost") }}'
             tests:
               - not_null
               - positive_values
           - name: order_id
-            description: >
-              "Unique identificator of the order"
+            description: '{{ doc("order_id") }}'
             tests:
               - not_null
               - unique
           - name: order_total
-            description: >
-              "Total cost of the order (shipping cost and promos included)"
+            description: '{{ doc("order_total") }}'
             tests:
               - not_null
               - positive_values
           - name: promo_id
-            description: >
-              "Unique identificator of the promo applied to the order"
+            description: '{{ doc("promo_id") }}'
             tests:
               - not_null
           - name: shipping_cost
-            description: >
-              "Cost of the shipping company service"
+            description: '{{ doc("shipping_cost") }}'
             tests:
               - not_null
           - name: shipping_service
-            description: >
-              "Name of the shipping company service"
+            description: '{{ doc("shipping_service") }}'
             tests:
               - not_null
           - name: status
-            description: >
-              "Status of the order"
+            description: '{{ doc("shipping_status") }}'
             tests:
               - not_null
               - accepted_values:
                   values: ['preparing', 'delivered', 'shipped']
           - name: tracking_id
-            description: >
-              "Unique identificator of the tracking of the order"
+            description: '{{ doc("tracking_id") }}'
             tests:
               - not_null
           - name: user_id
-            description: >
-              "Unique identificator of the user of the order"
+            description: '{{ doc("user_id") }}'
             tests:
               - not_null
           - name: _fivetran_deleted
@@ -141,98 +138,105 @@ sources:
 
       - name: order_items
         loaded_at_field: _fivetran_synced
+        description: '{{ doc("order_items_table") }}'
         columns:
           - name: order_id
+            description: '{{ doc("order_id") }}'
           - name: product_id
+            description: '{{ doc("product_id") }}'
           - name: quantity
+            description: '{{ doc("order_items_quantity") }}'
           - name: _fivetran_deleted
+            description: '{{ doc("fivetran_deleted") }}'
           - name: _fivetran_synced
+            description: '{{ doc("fivetran_synced") }}'
 
       - name: products
         loaded_at_field: _fivetran_synced
+        description: '{{ doc("products_table") }}'
         columns:
           - name: inventory
+            description: '{{ doc("product_inventory") }}'
           - name: name
+            description: '{{ doc("product_name") }}'
           - name: price
+            description: '{{ doc("product_price") }}'
           - name: product_id
+            description: '{{ doc("product_id") }}'
           - name: _fivetran_deleted
+            description: '{{ doc("fivetran_deleted") }}'
           - name: _fivetran_synced
+            description: '{{ doc("fivetran_synced") }}'
 
       - name: promos
         loaded_at_field: _fivetran_synced
+        description: '{{ doc("promos_table") }}'
         columns:
           - name: discount
-            description: >
-              "Discount in euros (not percentage!) of the promotion"
+            description: '{{ doc("promo_discount") }}'
             tests:
               - not_null
               - positive_values
           - name: promo_id
-            description: >
-              "Unique identificator of the promotion"
+            description: '{{ doc("promo_id") }}'
             tests:
               - not_null
               - unique
           - name: status
-            description: >
-              "Status of the promotion"
+            description: '{{ doc("promo_status") }}'
             tests:
               - accepted_values:
                   values: ['active', 'inactive']
               - not_null
           - name: _fivetran_deleted
+            description: '{{ doc("fivetran_deleted") }}'
           - name: _fivetran_synced
+            description: '{{ doc("fivetran_synced") }}'
 
       - name: users
         loaded_at_field: _fivetran_synced
+        description: '{{ doc("users_table") }}'
         columns:
           - name: address_id
-            description: >
-              "Unique identificator of the address of the user"
+            description: '{{ doc("address_id") }}'
             tests:
               - not_null
           - name: created_at
-            description: >
-              "Timestamp where the user is created at the system"
+            description: '{{ doc("created_at") }}'
             tests:
               - not_null
           - name: email
-            description: >
-              "Email of the user"
+            description: '{{ doc("email") }}'
             tests:
               - not_null
               - unique
           - name: first_name
-            description: >
-              "First name of the user"
+            description: '{{ doc("first_name") }}'
             tests:
               - not_null
           - name: last_name
-            description: >
-              "Last name of the user"
+            description: '{{ doc("last_name") }}'
             tests:
               - not_null
           - name: phone_number
-            description: >
-              "Phone number of the user"
+            description: '{{ doc("phone") }}'
             tests:
               - not_null
               - unique
           - name: total_orders
-            description: >
-              "Total orders made by the user"
+            description: '{{ doc("total_orders") }}'
           - name: updated_at
-            description: >
-              "Last update of any field of the user"
+            description: '{{ doc("updated_at") }}'
             tests:
               - not_null
           - name: user_id
-            description: >
-              "Unique identificator of the user"
+            description: '{{ doc("user_id") }}'
             tests:
               - not_null
               - unique
           - name: _fivetran_deleted
+            description: '{{ doc("fivetran_deleted") }}'
           - name: _fivetran_synced
+            description: '{{ doc("fivetran_synced") }}'
             tests:
               - not_null

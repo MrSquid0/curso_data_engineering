@@ -1,0 +1,265 @@
+version: 2
+
+models:
+  - name: stg_sql_server_dbo__addresses
+    description: ""
+    columns:
+      - name: address_id
+        data_type: varchar
+        description: '{{ doc("address_id") }}'
+
+      - name: address
+        data_type: varchar
+        description: '{{ doc("address") }}'
+
+      - name: country
+        data_type: varchar
+        description: '{{ doc("country") }}'
+
+      - name: state
+        data_type: varchar
+        description: '{{ doc("state") }}'
+
+      - name: zipcode
+        data_type: integer
+        description: '{{ doc("zipcode") }}'
+
+      - name: data_deleted
+        data_type: boolean
+        description: '{{ doc("data_deleted") }}'
+
+      - name: date_load_utc
+        data_type: timestamp_tz
+        description: '{{ doc("date_load") }}'
+
+  - name: stg_sql_server_dbo__events
+    description: '{{ doc("events_table") }}'
+    columns:
+      - name: created_at_utc
+        data_type: timestamp_tz
+        description: '{{ doc("created_at_v2") }}'
+
+      - name: event_id
+        data_type: varchar
+        description: '{{ doc("event_id") }}'
+
+      - name: event_type
+        data_type: varchar
+        description: '{{ doc("event_type") }}'
+
+      - name: order_id
+        data_type: varchar
+        description: '{{ doc("order_id") }}'
+
+      - name: page_url
+        data_type: varchar
+        description: '{{ doc("page_url") }}'
+
+      - name: product_id
+        data_type: varchar
+        description: '{{ doc("product_id") }}'
+
+      - name: session_id
+        data_type: varchar
+        description: '{{ doc("session_id") }}'
+
+      - name: user_id
+        data_type: varchar
+        description: '{{ doc("user_id") }}'
+
+      - name: data_deleted
+        data_type: boolean
+        description: '{{ doc("data_deleted") }}'
+
+      - name: date_load_utc
+        data_type: timestamp_tz
+        description: '{{ doc("date_load") }}'
+
+  - name: stg_sql_server_dbo__order_items
+    description: '{{ doc("order_items_table") }}'
+    columns:
+      - name: order_items_id
+        data_type: varchar
+        description: '{{ doc("order_items_id") }}'
+
+      - name: order_id
+        data_type: varchar
+        description: '{{ doc("order_id") }}'
+
+      - name: product_id
+        data_type: varchar
+        description: '{{ doc("product_id") }}'
+
+      - name: quantity
+        data_type: integer
+        description: '{{ doc("order_items_quantity") }}'
+
+      - name: data_deleted
+        data_type: boolean
+        description: '{{ doc("data_deleted") }}'
+
+      - name: date_load_utc
+        data_type: timestamp_tz
+        description: '{{ doc("date_load") }}'
+
+  - name: stg_sql_server_dbo__orders
+    description: '{{ doc("orders_table") }}'
+    columns:
+      - name: created_at_utc
+        data_type: timestamp_tz
+        description: '{{ doc("created_at_v2") }}'
+
+      - name: delivered_at_utc
+        data_type: timestamp_tz
+        description: '{{ doc("delivered_at_v2") }}'
+
+      - name: estimated_delivery_at_utc
+        data_type: timestamp_tz
+        description: '{{ doc("estimated_delivery_at_v2") }}'
+
+      - name: order_cost
+        data_type: decimal
+        description: '{{ doc("order_cost") }}'
+
+      - name: order_total
+        data_type: decimal
+        description: '{{ doc("order_total") }}'
+
+      - name: order_id
+        data_type: varchar
+        description: '{{ doc("order_id") }}'
+
+      - name: address_id
+        data_type: varchar
+        description: '{{ doc("address_id") }}'
+
+      - name: promo_id
+        data_type: varchar
+        description: '{{ doc("promo_id_v2") }}'
+
+      - name: shipping_cost
+        data_type: decimal
+        description: '{{ doc("shipping_cost") }}'
+
+      - name: shipping_service
+        data_type: varchar
+        description: '{{ doc("shipping_service") }}'
+
+      - name: shipping_status
+        data_type: varchar
+        description: '{{ doc("shipping_status") }}'
+
+      - name: tracking_id
+        data_type: varchar
+        description: '{{ doc("tracking_id") }}'
+
+      - name: user_id
+        data_type: varchar
+        description: '{{ doc("user_id") }}'
+
+      - name: data_deleted
+        data_type: boolean
+        description: '{{ doc("data_deleted") }}'
+
+      - name: date_load_utc
+        data_type: timestamp_tz
+        description: '{{ doc("date_load") }}'
+
+  - name: stg_sql_server_dbo__products
+    description: '{{ doc("products_table") }}'
+    columns:
+      - name: inventory
+        data_type: integer
+        description: '{{ doc("product_inventory") }}'
+
+      - name: product_name
+        data_type: varchar
+        description: '{{ doc("product_name") }}'
+
+      - name: price
+        data_type: number
+        description: '{{ doc("product_price") }}'
+
+      - name: product_id
+        data_type: varchar
+        description: '{{ doc("product_id") }}'
+
+      - name: data_deleted
+        data_type: boolean
+        description: '{{ doc("data_deleted") }}'
+
+      - name: date_load_utc
+        data_type: timestamp_tz
+        description: '{{ doc("date_load") }}'
+
+
+  - name: stg_sql_server_dbo__promos
+    description: '{{ doc("promos_table") }}'
+    columns:
+      - name: promo_id
+        data_type: varchar
+        description: '{{ doc("promo_id_v2") }}'
+
+      - name: promo_code
+        data_type: varchar
+        description: '{{ doc("promo_code") }}'
+
+      - name: promo_discount
+        data_type: integer
+        description: '{{ doc("promo_discount") }}'
+
+      - name: promo_status
+        data_type: varchar
+        description: '{{ doc("promo_status") }}'
+
+      - name: data_deleted
+        data_type: boolean
+        description: '{{ doc("data_deleted") }}'
+
+      - name: date_load_utc
+        data_type: timestamp_tz
+        description: '{{ doc("date_load") }}'
+
+
+  - name: stg_sql_server_dbo__users
+    description: ""
+    columns:
+      - name: created_at_utc
+        data_type: timestamp_tz
+        description: '{{ doc("created_at_v2") }}'
+
+      - name: email
+        data_type: varchar
+        description: '{{ doc("email") }}'
+
+      - name: first_name
+        data_type: varchar
+        description: '{{ doc("first_name") }}'
+
+      - name: last_name
+        data_type: varchar
+        description: '{{ doc("last_name") }}'
+
+      - name: phone_number
+        data_type: varchar
+        description: '{{ doc("phone") }}'
+
+      - name: updated_at_utc
+        data_type: timestamp_tz
+        description: '{{ doc("updated_at_v2") }}'
+
+      - name: user_id
+        data_type: varchar
+        description: '{{ doc("user_id") }}'
+
+      - name: address_id
+        data_type: varchar
+        description: '{{ doc("address_id") }}'
+
+      - name: data_deleted
+        data_type: boolean
+        description: '{{ doc("data_deleted") }}'
+
+      - name: date_load_utc
+        data_type: timestamp_tz
+        description: '{{ doc("date_load") }}'

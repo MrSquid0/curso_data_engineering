@@ -5,11 +5,15 @@ WITH src_promos AS (
 
 renamed_casted AS (
     SELECT
-        CAST(discount AS INTEGER) AS discount,
-        SHA2(promo_id, 256) AS promo_id_hashed,
-        LOWER(status) AS status,
-        _fivetran_deleted,
-        _fivetran_synced AS date_load
+        {{ dbt_utils.generate_surrogate_key(['promo_id']) }} AS promo_id
+        , LOWER(promo_id) AS promo_code
+        , CAST(discount AS INTEGER) AS promo_discount
+        , LOWER(status) AS promo_status
+        , CASE 
+            WHEN _fivetran_deleted IS NULL THEN FALSE 
+            ELSE TRUE 
+        END AS data_deleted
+        , CONVERT_TIMEZONE('UTC', _fivetran_synced) AS date_load_utc
     FROM src_promos
 )
 
