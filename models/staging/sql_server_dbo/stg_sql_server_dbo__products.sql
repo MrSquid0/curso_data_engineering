@@ -5,10 +5,10 @@ WITH src_products AS (
 
 renamed_casted AS (
     SELECT
-        CAST(inventory AS INTEGER) AS stock
+        product_id
         , INITCAP(name) AS product_name
         , CAST(price AS DECIMAL(10,2)) AS price
-        , product_id
+        , CAST(inventory AS INTEGER) AS stock
         , CASE 
             WHEN _fivetran_deleted IS NULL THEN FALSE 
             ELSE TRUE 

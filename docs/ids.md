@@ -68,3 +68,17 @@ con el valor 'promo_id'.
 Si el valor es 'null' significa que no hay ninguna promoción aplicada.
 
 {% enddocs %}
+
+{% docs tracking_id %}
+
+Identificador único del seguimiento del pedido.
+Si el campo está vacío significa que aún no se ha enviado el pedido.
+
+{% enddocs %}
+
+{% docs tracking_id_v2 %}
+
+Identificador único del seguimiento del pedido.
+Si el campo es 'null' significa que aún no se ha enviado el pedido.
+
+{% enddocs %}

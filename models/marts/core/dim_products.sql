@@ -5,10 +5,10 @@ WITH stg_products AS (
 
 dim_products AS (
     SELECT 
-        stock
+        product_id
         , product_name
         , price
-        , product_id
+        , stock
         , data_deleted
         , date_load_utc
     FROM stg_products

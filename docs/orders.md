@@ -64,24 +64,11 @@ Estado actual del envío del pedido. Los posibles valores son:
 
 {% enddocs %}
 
-{% docs tracking_id %}
-
-Identificador único del seguimiento del pedido.
-Si el campo está vacío significa que aún no se ha enviado el pedido.
-
-{% enddocs %}
-
-{% docs tracking_id_v2 %}
-
-Identificador único del seguimiento del pedido.
-Si el campo es 'null' significa que aún no se ha enviado el pedido.
-
-{% enddocs %}
-
 {% docs delivered_at_v2 %}
 
 Marca temporal cuando el pedido fue entregado (zona horaria: UTC).
-Si el campo es 'null' significa que aún no se ha enviado el pedido.
+Si el campo es 'null' significa que no se ha enviado el pedido aún o
+que se ha enviado pero no ha llegado todavía.
 
 {% enddocs %}
 
