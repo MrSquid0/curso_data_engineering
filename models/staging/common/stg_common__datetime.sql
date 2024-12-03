@@ -1,4 +1,4 @@
-WITH dim_datetime AS (
+WITH base_datetime AS (
     SELECT * FROM (
         {{ dbt_utils.date_spine(
             datepart="day",
@@ -30,7 +30,7 @@ datetime_info AS (
             WHEN MONTH(DATE_DAY) BETWEEN 1 AND 6 THEN 1
             ELSE 2
         END AS semester
-    FROM dim_datetime
+    FROM base_datetime
 )
 
 SELECT * FROM datetime_info

@@ -6,7 +6,7 @@ WITH src_order_items AS (
 renamed_casted AS (
     SELECT
         {{ dbt_utils.generate_surrogate_key(['order_id', 'product_id']) }} AS order_items_id    
-        ,  order_id
+        , order_id
         , product_id
         , quantity
         , CASE 

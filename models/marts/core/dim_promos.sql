@@ -3,7 +3,7 @@ WITH stg_promos AS (
     FROM {{ ref('stg_sql_server_dbo__promos') }}
     ),
 
-renamed_casted AS (
+dim_promos AS (
     SELECT
         promo_id
         , promo_code
@@ -14,4 +14,4 @@ renamed_casted AS (
     FROM stg_promos
     )
 
-SELECT * FROM renamed_casted
+SELECT * FROM dim_promos
