@@ -1,1 +1,23 @@
 version: 2
+
+models:
+  - name: dim_addresses
+    description: '{{ doc("addresses_table") }}'
+    columns:
+      - name: address_id
+        description: '{{ doc("address_id") }}'
+        tests:
+          - not_null
+          - unique
+      - name: country
+        description: '{{ doc("country") }}'
+        tests:
+          - not_null
+      - name: state
+        description: '{{ doc("state") }}'
+      - name: zipcode
+        description: '{{ doc("zipcode") }}'
+      - name: data_deleted
+        description: '{{ doc("data_deleted") }}'
+      - name: date_load_utc
+        description: '{{ doc("date_load") }}'

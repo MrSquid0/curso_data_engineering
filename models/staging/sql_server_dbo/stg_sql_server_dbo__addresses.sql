@@ -6,7 +6,7 @@ WITH src_addresses AS (
 renamed_casted AS (
     SELECT
           address_id
-        , INITCAP(address) AS address
+        , INITCAP(address) AS address -- Pone la primera letra del campo en mayúscula
         , INITCAP(country) AS country
         , INITCAP(state) AS state
         , CAST(zipcode AS INTEGER) AS zipcode

@@ -4,9 +4,9 @@ Tabla sobre los productos existentes.
 
 {% enddocs %}
 
-{% docs product_inventory %}
+{% docs product_stock %}
 
-Cantidad de inventario disponible del producto.
+Unidades disponibles del producto en el almacén.
 
 {% enddocs %}
 
