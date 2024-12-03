@@ -9,6 +9,8 @@ models:
         tests:
           - not_null
           - unique
+      - name: address
+        description: '{{ doc("address") }}'
       - name: country
         description: '{{ doc("country") }}'
         tests:
@@ -17,6 +19,180 @@ models:
         description: '{{ doc("state") }}'
       - name: zipcode
         description: '{{ doc("zipcode") }}'
+      - name: data_deleted
+        description: '{{ doc("data_deleted") }}'
+      - name: date_load_utc
+        description: '{{ doc("date_load") }}'
+
+  - name: dim_products
+    description: '{{ doc("products_table") }}'
+    columns:
+      - name: product_id
+        description: '{{ doc("product_id") }}'
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: '{{ doc("product_name") }}'
+      - name: price
+        description: '{{ doc("product_price") }}'
+      - name: stock
+        description: '{{ doc("product_stock") }}'
+      - name: data_deleted
+        description: '{{ doc("data_deleted") }}'
+      - name: date_load_utc
+        description: '{{ doc("date_load") }}'
+
+  - name: dim_promos
+    description: '{{ doc("promos_table") }}'
+    columns:
+      - name: promo_id
+        description: '{{ doc("promo_id_v2") }}'
+        tests:
+          - not_null
+          - unique
+      - name: promo_code
+        description: '{{ doc("promo_code") }}'
+      - name: promo_status
+        description: '{{ doc("promo_status") }}'
+      - name: data_deleted
+        description: '{{ doc("data_deleted") }}'
+      - name: date_load_utc
+        description: '{{ doc("date_load") }}'
+
+  - name: dim_users
+    description: '{{ doc("users_table") }}'
+    columns:
+      - name: user_id
+        description: '{{ doc("user_id") }}'
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: '{{ doc("first_name") }}'
+      - name: last_name
+        description: '{{ doc("last_name") }}'
+      - name: email
+        description: '{{ doc("email") }}'
+      - name: phone_number
+        description: '{{ doc("phone") }}'
+      - name: created_at_utc
+        description: '{{ doc("created_at_v2") }}'
+      - name: updated_at_utc
+        description: '{{ doc("updated_at_v2") }}'
+      - name: address_id
+        description: '{{ doc("address_id") }}'
+      - name: data_deleted
+        description: '{{ doc("data_deleted") }}'
+      - name: date_load_utc
+        description: '{{ doc("date_load") }}'
+
+  - name: dim_datetime
+    description: '{{ doc("datetime_table") }}'
+    columns:
+      - name: datetime_id
+        description: '{{ doc("datetime_id") }}'
+        tests:
+          - not_null
+          - unique
+      - name: day_number
+        description: '{{ doc("day_number") }}'
+      - name: month_number
+        description: '{{ doc("month_number") }}'
+      - name: year
+        description: '{{ doc("year") }}'
+      - name: day_name
+        description: '{{ doc("day_name") }}'
+      - name: month_name
+        description: '{{ doc("month_name") }}'
+      - name: day_of_week
+        description: '{{ doc("day_of_week") }}'
+      - name: day_type
+        description: '{{ doc("day_type") }}'
+      - name: quarter
+        description: '{{ doc("quarter") }}'
+      - name: semester
+        description: '{{ doc("semester") }}'
+
+  - name: fct_events
+    description: '{{ doc("events_table") }}'
+    columns:
+      - name: created_at_utc
+        description: '{{ doc("created_at_v2") }}'
+      - name: event_id
+        description: '{{ doc("event_id") }}'
+        tests:
+          - not_null
+          - unique
+      - name: event_type
+        description: '{{ doc("event_type") }}'
+      - name: tracking_id
+        description: '{{ doc("tracking_id_v2") }}'
+      - name: page_url
+        description: '{{ doc("page_url") }}'
+      - name: product_id
+        description: '{{ doc("product_id_v2") }}'
+      - name: session_id
+        description: '{{ doc("session_id") }}'
+      - name: user_id
+        description: '{{ doc("user_id") }}'
+      - name: quarter
+      - name: data_deleted
+        description: '{{ doc("data_deleted") }}'
+      - name: date_load_utc
+        description: '{{ doc("date_load") }}'
+
+  - name: fct_order_items
+    description: '{{ doc("order_items_table") }}'
+    columns:
+      - name: order_items_id
+        description: '{{ doc("order_items_id") }}'
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: '{{ doc("order_id_v2") }}'
+      - name: product_id
+        description: '{{ doc("product_id_v2") }}'
+      - name: quantity
+        description: '{{ doc("order_items_quantity") }}'
+      - name: data_deleted
+        description: '{{ doc("data_deleted") }}'
+      - name: date_load_utc
+        description: '{{ doc("date_load") }}'
+
+  - name: fct_orders
+    description: '{{ doc("orders_table") }}'
+    columns:
+      - name: order_id
+        description: '{{ doc("order_id_v2") }}'
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        description: '{{ doc("user_id") }}'
+      - name: promo_id
+        description: '{{ doc("promo_id") }}'
+      - name: address_id
+        description: '{{ doc("address_id") }}'
+      - name: created_at_utc
+        description: '{{ doc("created_at_v2") }}'
+      - name: order_cost
+        description: '{{ doc("order_cost") }}'
+      - name: shipping_cost
+        description: '{{ doc("shipping_cost") }}'
+      - name: order_total
+        description: '{{ doc("order_total") }}'
+      - name: shipping_service
+        description: '{{ doc("shipping_service_v2") }}'
+      - name: estimated_delivery_at_utc
+        description: '{{ doc("estimated_delivery_at_v2") }}'
+      - name: delivered_at_utc
+        description: '{{ doc("delivered_at_v2") }}'
+      - name: days_to_deliver
+        description: '{{ doc("days_to_deliver") }}'
+      - name: shipping_status
+        description: '{{ doc("shipping_status") }}'
       - name: data_deleted
         description: '{{ doc("data_deleted") }}'
       - name: date_load_utc

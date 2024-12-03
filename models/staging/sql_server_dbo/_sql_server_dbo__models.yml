@@ -168,9 +168,9 @@ models:
   - name: stg_sql_server_dbo__products
     description: '{{ doc("products_table") }}'
     columns:
-      - name: stock
-        data_type: integer
-        description: '{{ doc("product_stock") }}'
+      - name: product_id
+        data_type: varchar
+        description: '{{ doc("product_id_v2") }}'
 
       - name: product_name
         data_type: varchar
@@ -180,9 +180,9 @@ models:
         data_type: number
         description: '{{ doc("product_price") }}'
 
-      - name: product_id
-        data_type: varchar
-        description: '{{ doc("product_id_v2") }}'
+      - name: stock
+        data_type: integer
+        description: '{{ doc("product_stock") }}'
 
       - name: data_deleted
         data_type: boolean
