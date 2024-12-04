@@ -10,6 +10,12 @@ Correo electrónico único del usuario.
 
 {% enddocs %}
 
+{% docs email_test %}
+
+Test que verifica si el correo electrónico es válido (TRUE )o no (FALSE).
+
+{% enddocs %}
+
 {% docs first_name %}
 
 Primer nombre del usuario.

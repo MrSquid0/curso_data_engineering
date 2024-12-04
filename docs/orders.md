@@ -15,7 +15,8 @@ Si el campo es 'null' significa que aún no se ha enviado el pedido.
 {% docs estimated_delivery_at %}
 
 Fecha estimada para la entrega del pedido.
-Si el campo es 'null' significa que aún no se ha enviado el pedido.
+Si el campo es 'null' significa que aún no se ha enviado el pedido o que 
+no hay llegada estimada del pedido.
 
 {% enddocs %}
 
@@ -75,7 +76,8 @@ que se ha enviado pero no ha llegado todavía.
 {% docs estimated_delivery_at_v2 %}
 
 Fecha estimada para la entrega del pedido (zona horaria: UTC).
-Si el campo es 'null' significa que aún no se ha enviado el pedido.
+Si el campo es 'null' significa que aún no se ha enviado el pedido o que 
+no hay llegada estimada del pedido.
 
 {% enddocs %}
 

@@ -12,7 +12,7 @@ renamed_casted AS (
               WHEN order_id = ''
               THEN null
               ELSE order_id
-        END AS tracking_id
+        END AS order_id
         , page_url
         , CASE
               WHEN product_id = ''

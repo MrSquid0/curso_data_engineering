@@ -1,4 +1,4 @@
-WITH base_datetime AS (
+WITH base_date AS (
     SELECT * FROM (
         {{ dbt_utils.date_spine(
             datepart="day",
@@ -9,9 +9,9 @@ WITH base_datetime AS (
     )
 ),
 
-datetime_info AS (
+date_info AS (
     SELECT 
-        DATE_DAY AS datetime_id -- Uso la marca de tiempo como el ID
+        DATE(DATE_DAY) AS date_id -- Uso la fecha como el ID
         , DAY(DATE_DAY) AS day_number --Obtiene el día numérico del mes
         , MONTH(DATE_DAY) AS month_number -- Obtiene el mes numérico del año
         , YEAR(DATE_DAY) AS year -- Obtiene el año numérico de la fecha
@@ -30,7 +30,7 @@ datetime_info AS (
             WHEN MONTH(DATE_DAY) BETWEEN 1 AND 6 THEN 1
             ELSE 2
         END AS semester
-    FROM base_datetime
+    FROM base_date
 )
 
-SELECT * FROM datetime_info
+SELECT * FROM date_info
