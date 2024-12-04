@@ -1,13 +1,12 @@
-{% docs datetime_table %}
+{% docs date_table %}
 
-Tabla de dimensión fecha-tiempo.
+Tabla de dimensión de fechas.
 
 {% enddocs %}
 
-{% docs datetime_id %}
+{% docs date_id %}
 
-Identificador único de cada marca de tiempo.
-Lo importante es la fecha, las horas nunca varían (pues son inservibles).
+Se usa la fecha como identificador único de datetime.
 
 {% enddocs %}
 

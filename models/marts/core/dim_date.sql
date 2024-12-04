@@ -1,11 +1,11 @@
-WITH stg_datetime AS (
+WITH stg_date AS (
     SELECT * 
-    FROM {{ ref('stg_common__datetime') }}
+    FROM {{ ref('stg_common__date') }}
     ),
 
-dim_datetime AS (
+dim_date AS (
     SELECT 
-        datetime_id
+        date_id
         , day_number
         , month_number
         , year
@@ -15,7 +15,7 @@ dim_datetime AS (
         , day_type    
         , quarter
         , semester
-    FROM stg_datetime
+    FROM stg_date
     )
 
-SELECT * FROM dim_datetime
+SELECT * FROM dim_date

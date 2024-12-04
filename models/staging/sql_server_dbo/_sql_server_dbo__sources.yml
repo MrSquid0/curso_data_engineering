@@ -25,25 +25,35 @@ sources:
             description: '{{ doc("address") }}'
             tests:
               - not_null
+
           - name: address_id
             description: '{{ doc("address_id") }}'
             tests:
               - not_null
               - unique
+
           - name: country
             description: '{{ doc("country") }}'
             tests:
               - not_null
+              - dbt_utils.not_empty_string:
+                  trim_whitespace: false
+
           - name: state
             description: '{{ doc("state") }}'
             tests:
               - not_null
+              - dbt_utils.not_empty_string:
+                  trim_whitespace: false
+
           - name: zipcode
             description: '{{ doc("zipcode") }}'
             tests:
               - not_null
+
           - name: _fivetran_deleted
             description: '{{ doc("fivetran_deleted") }}'
+
           - name: _fivetran_synced
             description: '{{ doc("fivetran_synced") }}'
             tests:
@@ -55,84 +65,52 @@ sources:
         columns:
           - name: created_at
             description: '{{ doc("created_at") }}'
+            tests:
+              - not_null
+
           - name: event_id
             description: '{{ doc("event_id") }}'
-          - name: event_type
-            description: '{{ doc("event_type") }}'
-          - name: order_id
-            description: '{{ doc("order_id") }}'
-          - name: page_url
-            description: '{{ doc("page_url") }}'
-          - name: product_id
-            description: '{{ doc("product_id") }}'
-          - name: session_id
-            description: '{{ doc("session_id") }}'
-          - name: user_id
-            description: '{{ doc("user_id") }}'
-          - name: _fivetran_deleted
-            description: '{{ doc("fivetran_deleted") }}'
-          - name: _fivetran_synced
-            description: '{{ doc("fivetran_synced") }}'
-
-      - name: orders
-        loaded_at_field: _fivetran_synced
-        description: '{{ doc("orders_table") }}'
-        columns:
-          - name: address_id
-            description: '{{ doc("address_id") }}'
-            tests:
-              - not_null
-          - name: created_at
-            description: '{{ doc("created_at") }}'
-            tests:
-              - not_null
-          - name: delivered_at
-            description: '{{ doc("delivered_at") }}'
-          - name: estimated_delivery_at
-            description: '{{ doc("estimated_delivery_at") }}'
-          - name: order_cost
-            description: '{{ doc("order_cost") }}'
-            tests:
-              - not_null
-              - positive_values
-          - name: order_id
-            description: '{{ doc("order_id") }}'
             tests:
               - not_null
               - unique
-          - name: order_total
-            description: '{{ doc("order_total") }}'
+
+          - name: event_type
+            description: '{{ doc("event_type") }}'
             tests:
               - not_null
-              - positive_values
-          - name: promo_id
-            description: '{{ doc("promo_id") }}'
+
+          - name: order_id
+            description: '{{ doc("order_id") }}'
             tests:
               - not_null
-          - name: shipping_cost
-            description: '{{ doc("shipping_cost") }}'
+
+          - name: page_url
+            description: '{{ doc("page_url") }}'
             tests:
               - not_null
-          - name: shipping_service
-            description: '{{ doc("shipping_service") }}'
+
+          - name: product_id
+            description: '{{ doc("product_id") }}'
             tests:
               - not_null
-          - name: status
-            description: '{{ doc("shipping_status") }}'
+
+          - name: session_id
+            description: '{{ doc("session_id") }}'
             tests:
               - not_null
-              - accepted_values:
-                  values: ['preparing', 'delivered', 'shipped']
-          - name: tracking_id
-            description: '{{ doc("tracking_id") }}'
-            tests:
-              - not_null
+
           - name: user_id
             description: '{{ doc("user_id") }}'
             tests:
-              - not_null
+              - relationships:
+                  to: source('sql_server_dbo', 'users')
+                  field: user_id
+
           - name: _fivetran_deleted
+            description: '{{ doc("fivetran_deleted") }}'
+
           - name: _fivetran_synced
+            description: '{{ doc("fivetran_synced") }}'
             tests:
               - not_null
 
@@ -142,14 +120,118 @@ sources:
         columns:
           - name: order_id
             description: '{{ doc("order_id") }}'
+            tests:
+              - not_null
+              - relationships:
+                  to: source('sql_server_dbo', 'orders')
+                  field: order_id
+
           - name: product_id
             description: '{{ doc("product_id") }}'
+            tests:
+              - not_null
+              - relationships:
+                  to: source('sql_server_dbo', 'products')
+                  field: product_id
+
           - name: quantity
             description: '{{ doc("order_items_quantity") }}'
+            tests:
+              - not_null
+              - positive_values
+
           - name: _fivetran_deleted
             description: '{{ doc("fivetran_deleted") }}'
+
           - name: _fivetran_synced
             description: '{{ doc("fivetran_synced") }}'
+            tests:
+              - not_null
+
+
+      - name: orders
+        loaded_at_field: _fivetran_synced
+        description: '{{ doc("orders_table") }}'
+        columns:
+          - name: address_id
+            description: '{{ doc("address_id") }}'
+            tests:
+              - not_null
+              - relationships:
+                  to: source('sql_server_dbo', 'addresses')
+                  field: address_id
+
+          - name: created_at
+            description: '{{ doc("created_at") }}'
+            tests:
+              - not_null
+
+          - name: delivered_at
+            description: '{{ doc("delivered_at") }}'
+
+          - name: estimated_delivery_at
+            description: '{{ doc("estimated_delivery_at") }}'
+
+          - name: order_cost
+            description: '{{ doc("order_cost") }}'
+            tests:
+              - not_null
+              - positive_values
+              
+          - name: order_id
+            description: '{{ doc("order_id") }}'
+            tests:
+              - not_null
+              - unique
+              - relationships:
+                  to: source('sql_server_dbo', 'orders')
+                  field: order_id
+
+          - name: order_total
+            description: '{{ doc("order_total") }}'
+            tests:
+              - not_null
+              - positive_values
+
+          - name: promo_id
+            description: '{{ doc("promo_id") }}'
+            tests:
+              - not_null
+
+          - name: shipping_cost
+            description: '{{ doc("shipping_cost") }}'
+            tests:
+              - not_null
+
+          - name: shipping_service
+            description: '{{ doc("shipping_service") }}'
+            tests:
+              - not_null
+
+          - name: status
+            description: '{{ doc("shipping_status") }}'
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['preparing', 'delivered', 'shipped']
+
+          - name: tracking_id
+            description: '{{ doc("tracking_id") }}'
+            tests:
+              - not_null
+
+          - name: user_id
+            description: '{{ doc("user_id") }}'
+            tests:
+              - not_null
+              
+          - name: _fivetran_deleted
+            description: '{{ doc("fivetran_deleted") }}'
+
+          - name: _fivetran_synced
+            description: '{{ doc("fivetran_synced") }}'
+            tests:
+              - not_null
 
       - name: products
         loaded_at_field: _fivetran_synced
@@ -157,16 +239,37 @@ sources:
         columns:
           - name: inventory
             description: '{{ doc("product_stock") }}'
+            tests:
+              - positive_values
+              - not_null
+
           - name: name
             description: '{{ doc("product_name") }}'
+            tests:
+              - not_null
+              - dbt_utils.not_empty_string
+
           - name: price
             description: '{{ doc("product_price") }}'
+            tests:
+              - positive_values
+              - not_null
+
           - name: product_id
             description: '{{ doc("product_id") }}'
+            tests:
+              - relationships:
+                  to: source('sql_server_dbo', 'products')
+                  field: product_id
+
           - name: _fivetran_deleted
             description: '{{ doc("fivetran_deleted") }}'
+
           - name: _fivetran_synced
             description: '{{ doc("fivetran_synced") }}'
+            tests:
+              - not_null
+
 
       - name: promos
         loaded_at_field: _fivetran_synced
@@ -177,21 +280,27 @@ sources:
             tests:
               - not_null
               - positive_values
+
           - name: promo_id
             description: '{{ doc("promo_id") }}'
             tests:
               - not_null
               - unique
+
           - name: status
             description: '{{ doc("promo_status") }}'
             tests:
               - accepted_values:
                   values: ['active', 'inactive']
               - not_null
+
           - name: _fivetran_deleted
             description: '{{ doc("fivetran_deleted") }}'
+
           - name: _fivetran_synced
             description: '{{ doc("fivetran_synced") }}'
+            tests:
+              - not_null
 
       - name: users
         loaded_at_field: _fivetran_synced
@@ -201,41 +310,62 @@ sources:
             description: '{{ doc("address_id") }}'
             tests:
               - not_null
+              - relationships:
+                  to: source('sql_server_dbo', 'addresses')
+                  field: address_id
+
           - name: created_at
             description: '{{ doc("created_at") }}'
             tests:
               - not_null
+              
           - name: email
             description: '{{ doc("email") }}'
             tests:
               - not_null
               - unique
+              - dbt_utils.not_empty_string:
+                  trim_whitespace: false
+              
           - name: first_name
             description: '{{ doc("first_name") }}'
             tests:
               - not_null
+              - dbt_utils.not_empty_string:
+                  trim_whitespace: false
+
           - name: last_name
             description: '{{ doc("last_name") }}'
             tests:
               - not_null
+              - dbt_utils.not_empty_string:
+                  trim_whitespace: false
+
           - name: phone_number
             description: '{{ doc("phone") }}'
             tests:
               - not_null
               - unique
+              - dbt_utils.not_empty_string:
+                  trim_whitespace: false
+
           - name: total_orders
             description: '{{ doc("total_orders") }}'
+
           - name: updated_at
             description: '{{ doc("updated_at") }}'
             tests:
               - not_null
+
           - name: user_id
             description: '{{ doc("user_id") }}'
             tests:
               - not_null
               - unique
+
           - name: _fivetran_deleted
             description: '{{ doc("fivetran_deleted") }}'
+
           - name: _fivetran_synced
             description: '{{ doc("fivetran_synced") }}'
             tests:

@@ -1,0 +1,17 @@
+unit_tests:
+  - name: test_is_valid_email
+    description: '{{ doc("email_test") }}'
+    model: dim_users
+    given:
+      - input: ref('stg_sql_server_dbo__users')
+        rows:
+          - {email: ekollaschek2q@tuttocitta.it}
+          - {email: sdivers2p@msu.edu}
+          - {email: wheinecke2l@ebay.com}
+          - {email: fail_email}
+    expect:
+      rows:
+        - {email: ekollaschek2q@tuttocitta.it,    is_valid_email: true}
+        - {email: sdivers2p@msu.edu,    is_valid_email: true}
+        - {email: wheinecke2l@ebay.com,    is_valid_email: true}
+        - {email: fail_email,    is_valid_email: false}

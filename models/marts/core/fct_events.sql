@@ -8,7 +8,7 @@ fct_events AS (
         created_at_utc
         , event_id
         , event_type
-        , tracking_id
+        , order_id
         , page_url
         , product_id
         , session_id
