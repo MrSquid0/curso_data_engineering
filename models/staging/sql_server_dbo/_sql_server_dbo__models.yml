@@ -449,6 +449,14 @@ models:
           - relationships:
               to: ref('stg_sql_server_dbo__addresses')
               field: address_id
+        
+      - name: total_orders
+        data_type: integer
+        description: '{{ doc("total_orders") }}'
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
 
       - name: data_deleted
         data_type: boolean

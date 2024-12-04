@@ -9,6 +9,7 @@ models:
         description: '{{ doc("date_id") }}'
         tests:
           - not_null
+          - unique
           - dbt_utils.sequential_values:
               interval: 1
               datepart: 'day'
