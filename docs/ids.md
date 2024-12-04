@@ -64,7 +64,7 @@ con los valores 'product_id' y 'month'.
 {% docs promo_id_v2 %}
 
 Identificador único de la promoción creado a través de una 'surrogate key' 
-con el valor 'promo_id'.
+con el valor 'promo_code'.
 Si el valor es 'null' significa que no hay ninguna promoción aplicada.
 
 {% enddocs %}
