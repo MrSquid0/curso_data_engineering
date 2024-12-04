@@ -19,6 +19,7 @@ fct_orders AS (
         , delivered_at_utc
 		, DATEDIFF(day, created_at_utc, delivered_at_utc) AS days_to_deliver
         , shipping_status
+        , data_deleted
         , date_load_utc
     FROM stg_orders
     )

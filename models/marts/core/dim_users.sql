@@ -14,6 +14,7 @@ dim_users AS (
         , created_at_utc
         , updated_at_utc
         , address_id
+        , total_orders
         , data_deleted
         , date_load_utc
     FROM stg_users
