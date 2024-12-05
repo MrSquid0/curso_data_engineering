@@ -83,7 +83,14 @@ no hay llegada estimada del pedido.
 
 {% docs days_to_deliver %}
 
-Días que quedan para que sea entregado el pedido.
+Días que ha tardado en llegar el pedido.
 Si el campo es 'null' significa que aún no se ha enviado el pedido.
+
+{% enddocs %}
+
+{% docs price_without_discount %}
+
+El precio total del pedido (productos + costes de envío) sin aplicar descuento.
+Si el campo es 'null' significa que no hay ninguna promoción aplicada al pedido.
 
 {% enddocs %}
