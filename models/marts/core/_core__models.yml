@@ -22,7 +22,7 @@ models:
         tests:
           - not_null
           - dbt_utils.not_empty_string:
-              trim_whitespace: false
+              trim_whitespace: false 
 
       - name: state
         description: '{{ doc("state") }}'
@@ -449,6 +449,16 @@ models:
           - not_null
           - positive_values
 
+      - name: promo_discount
+        description: '{{ doc("promo_discount") }}'
+        tests:
+          - positive_values
+
+      - name: price_without_discount
+        description: '{{ doc("price_without_discount") }}'
+        tests:
+          - positive_values
+
       - name: order_total
         description: '{{ doc("order_total") }}'
         tests:
@@ -476,6 +486,9 @@ models:
       - name: days_to_deliver
         data_type: integer
         description: '{{ doc("days_to_deliver") }}'
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 1
 
       - name: shipping_status
         description: '{{ doc("shipping_status") }}'
@@ -494,4 +507,3 @@ models:
         description: '{{ doc("date_load") }}'
         tests:
           - not_null
-        

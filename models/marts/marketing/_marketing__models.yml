@@ -1,0 +1,105 @@
+version: 2
+
+models:
+  - name: fct_total_info_users
+    description: '{{ doc("user_id") }}'
+    columns:
+      - name: user_id
+        description: '{{ doc("user_id") }}'
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_users')
+              field: user_id
+
+      - name: first_name
+        description: '{{ doc("first_name") }}'
+        tests:
+          - not_null
+          - dbt_utils.not_empty_string:
+              trim_whitespace: false
+
+      - name: last_name
+        description: '{{ doc("last_name") }}'
+        tests:
+          - not_null
+          - dbt_utils.not_empty_string:
+              trim_whitespace: false
+
+      - name: email
+        description: '{{ doc("email") }}'
+        tests:
+          - not_null
+          - dbt_utils.not_empty_string:
+              trim_whitespace: false
+
+      - name: phone_number
+        description: '{{ doc("phone") }}'
+        tests:
+          - not_null
+          - dbt_utils.not_empty_string:
+              trim_whitespace: false
+
+      - name: created_at_utc
+        description: '{{ doc("created_at_v2") }}'
+        tests:
+          - not_null
+
+      - name: updated_at_utc
+        description: '{{ doc("updated_at_v2") }}'
+        tests:
+          - not_null
+        
+      - name: address
+        description: '{{ doc("address") }}'
+        tests:
+          - not_null
+
+      - name: zipcode
+        description: '{{ doc("zipcode") }}'
+        tests:
+          - not_null
+
+      - name: state
+        description: '{{ doc("state") }}'
+        tests:
+          - not_null
+          - dbt_utils.not_empty_string:
+              trim_whitespace: false
+
+      - name: country
+        description: '{{ doc("country") }}'
+        tests:
+          - not_null
+          - dbt_utils.not_empty_string:
+              trim_whitespace: false 
+
+      - name: total_number_orders
+        description: '{{ doc("total_orders") }}'
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+
+      - name: total_order_cost
+        description: '{{ doc("order_cost") }}'
+        tests:
+          - not_null
+          - positive_values
+
+      - name: total_shipping_cost
+        description: '{{ doc("shipping_cost") }}'
+        tests:
+          - not_null
+          - positive_values
+
+      - name: total_discount
+        description: '{{ doc("promo_discount") }}'
+        tests:
+          - positive_values
+
+      - name: total_quantity_product
+        description: '{{ doc("order_items_quantity") }}'
+        tests:
+          - not_null
+          - positive_values
